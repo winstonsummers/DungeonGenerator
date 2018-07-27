@@ -1,13 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button, Text, View } from 'react-native';
+
+import AllRooms from './AllRooms.js';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      previousRooms: [AllRooms.empty, AllRooms.special],
+      currentRoom: AllRooms.monster[0]
+    }
+  }
+
   render() {
+
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Text>{this.state.currentRoom}</Text>
       </View>
     );
   }
